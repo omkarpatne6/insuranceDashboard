@@ -1,0 +1,47 @@
+<!-- Navbar section -->
+<nav class="navbar navbar-expand-lg tw-bg-[#101010] tw-overflow-visible tw-z-50 tw-py-5  sticky-top">
+    <div class="container">
+        <a class="navbar-brand text-white tw-font-bold" routerLink="/">INSURANCE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item px-lg-3">
+                    <a class="nav-link text-secondary" routerLink="/" routerLinkActive="active"
+                        ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                </li>
+                <ng-container *ngIf="!isAuthenticated()">
+                    <li class="nav-item dropdown px-lg-3">
+                        <a class="nav-link dropdown-toggle text-secondary" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu rounded-0 py-0" style="margin-top: 19px;">
+                            <li>
+                                <a class="dropdown-item py-2" routerLink="/login">Login</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ng-container>
+                <ng-container *ngIf="isAuthenticated()">
+                    <li class="nav-item dropdown px-lg-3">
+                        <a class="nav-link dropdown-toggle text-secondary" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            User
+                        </a>
+                        <ul class="dropdown-menu rounded-0 py-0" style="margin-top: 19px;">
+                            <li>
+                                <button type="button" class="dropdown-item py-2" (click)="logout()">Log out</button>
+                            </li>
+                        </ul>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</nav>

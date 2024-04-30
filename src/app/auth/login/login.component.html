@@ -1,0 +1,80 @@
+<div class="container py-5 h-100">
+    <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
+    <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                class="img-fluid" alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5">
+
+            <div class="tw-text-2xl tw-font-bold tw-text-center">Login</div>
+            <form #myForm="ngForm" (ngSubmit)="submit()">
+                <div class="lg:tw-w-3/4 lg:tw-mx-auto">
+                    <!-- Email input -->
+                    <div class="tw-my-4">
+                        <input type="email" id="email" [(ngModel)]="form.email" name="email" ngModel email
+                            placeholder="Enter your email" required #email="ngModel"
+                            class="tw-bg-gray-50 tw-border tw-border-gray-300 tw-text-gray-900 tw-text-sm tw-focus:ring-blue-500 tw-focus:border-blue-500 tw-block tw-w-full tw-p-2.5  tw-dark:bg-gray-700 tw-dark:border-gray-600 tw-dark:placeholder-gray-400 tw-dark:text-white tw-dark:focus:ring-blue-500 tw-dark:focus:border-blue-500 " />
+
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                            class="tw-text-red-500 tw-text-xs tw-mt-1">
+                            <div *ngIf="email.errors?.['required']">Email is required</div>
+                            <div *ngIf="email.errors?.['email'] && !email.errors?.['required']">Invalid email format
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Password input -->
+                    <div class="tw-my-4 tw-relative">
+                        <input type="password" id="password" [(ngModel)]="form.password" name="password"
+                            placeholder="Enter your password" required #password="ngModel"
+                            class="tw-bg-gray-50 tw-border tw-border-gray-300 tw-text-gray-900 tw-text-sm tw-focus:ring-blue-500 tw-focus:border-blue-500 tw-block tw-w-full tw-p-2.5 tw-dark:bg-gray-700 tw-dark:border-gray-600 tw-dark:placeholder-gray-400 tw-dark:text-white tw-dark:focus:ring-blue-500 tw-dark:focus:border-blue-500" />
+
+                        <button type="button" (click)="togglePasswordVisibility()"
+                            class="tw-absolute tw-top-0 tw-end-0 tw-p-3.5 tw-rounded-e-md">
+                            <svg class="tw-flex-shrink-0 tw-size-3.5 tw-text-gray-400 tw-dark:text-neutral-600"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="hs-password-active:hidden" d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
+                                <path class="hs-password-active:hidden"
+                                    d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68">
+                                </path>
+                                <path class="hs-password-active:hidden"
+                                    d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
+                                <line class="hs-password-active:hidden" x1="2" x2="22" y1="2" y2="22"></line>
+                                <path class="hidden hs-password-active:block"
+                                    d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                                <circle class="tw-hidden hs-password-active:block" cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+
+                        <div *ngIf="password.invalid && (password.dirty)" class="tw-text-red-500 tw-text-xs tw-mt-1">
+                            Password is
+                            required</div>
+                    </div>
+
+                    <button href="#" class="tw-text-xs tw-my-2 hover:tw-text-blue-500 align">Forgot password?</button>
+
+                    <!-- Submit button -->
+                    <button type="submit" [disabled]="myForm.form.invalid"
+                        class=" tw-relative tw-group tw-overflow-hidden tw-w-full tw-h-full tw-py-2 tw-font-semibold tw-border-2 tw-block">
+
+                        <span class="tw-relative">Log in</span>
+                    </button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

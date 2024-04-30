@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 tw-relative tw-h-[30vh] tw-bg-[#e2e2e2]">
+            <div
+                class="tw-absolute tw-bottom-0 tw-left-1/2 -tw-translate-x-1/2 tw-translate-y-1/2 tw-bg-white sm:tw-w-3/4 tw-w-[90%] md:tw-p-5 tw-p-2 tw-rounded tw-shadow-xl">
+                <div class="card border-5 pb-0 md:px-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"
+                                    alt="profile" class="img-fluid tw-w-28 tw-m-auto">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="tw-leading-8"><span class="tw-font-bold">Name:</span> John Doe</div>
+                                <div class="tw-leading-8"><span class="tw-font-bold">Email:</span> {{empData.email}}
+                                </div>
+                                <div class="tw-leading-8"><span class="tw-font-bold">Employee ID:</span> {{empData.eid}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 sm:tw-mt-14 tw-mt-16">
+            <div class="container">
+                <button type="button" routerLink="/payment"
+                    class="tw-p-2 tw-ms-auto tw-relative tw-group tw-overflow-hidden tw-h-full tw-py-2 tw-font-semibold tw-border-2 tw-block tw-border-black">
+                    <span
+                        class="tw-absolute tw-top-0 tw-left-0 tw-flex tw-w-full tw-h-0 tw-mb-0 tw-transition-all tw-duration-200 tw-ease-out tw-transform tw-translate-y-0 tw-bg-gray-200 group-hover:tw-h-full tw-opacity-90"></span>
+                    <span class="tw-relative tw-text-black">Payment details</span>
+                </button>
+                
+                <div class="tw-font-bold tw-text-xl">Your insurances</div>
+                <div class="mycard l-bg-blue-dark mt-4" *ngFor="let policy of policyData">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
+                        <div class="mb-4">
+                            <div class="card-title mb-0 tw-font-semibold tw-text-lg">{{policy.policyName}} - {{policy.policyType}}</div>
+                            <div class="card-title mb-0">{{policy.coverageDetails}}</div>
+                        </div>
+
+                        <div class="row align-items-center mb-2 d-flex">
+                            <div class="col-8">
+                                <h2 class="d-flex align-items-center mb-0">
+                                    Remaining Tenure
+                                </h2>
+                            </div>
+                            <div class="col-4 text-right">
+                                <span>{{policy.remainingTenure}}% <i class="fa fa-arrow-up"></i></span>
+                            </div>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar l-bg-green" role="progressbar" aria-valuemin="0" aria-valuemax="100"  [style.width.%]="policy.remainingTenure"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

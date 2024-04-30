@@ -1,0 +1,12 @@
+.nav-item .nav-link:hover {
+    color: white !important;
+}
+
+.nav-item .nav-link {
+    text-transform: uppercase;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.active {
+    color: rgb(55, 142, 255) !important
+}
